@@ -1,12 +1,14 @@
 // js/auth.js
 
-import { goBack, logout } from './router.js'; // Import sekarang berhasil
+// Mengimpor fungsi dari router.js
+import { goBack, logout } from './router.js'; 
 
 // Fungsi logout global yang akan dipanggil dari tombol di HTML
 window.logout = function() {
     localStorage.clear();
-    // Sesuaikan path ke login.html, karena auth.js di folder js/
-    window.location.href = "../login.html"; 
+    // PERBAIKAN PENTING: Menggunakan Absolute Path ke root repositori /Git/
+    // Ini memastikan tombol logout bekerja dari SEMUA sub-folder.
+    window.location.href = "/Git/login.html"; 
 };
 
 /**
@@ -27,7 +29,8 @@ export async function handleLogin(email, password) {
         if (user) {
             // Login Berhasil: Simpan status login & Redirect
             localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'index.html'; // Pindah ke Main Menu
+            // Path ini relatif terhadap login.html (yang ada di root)
+            window.location.href = 'index.html'; 
             return true;
         } else {
             // Login Gagal
