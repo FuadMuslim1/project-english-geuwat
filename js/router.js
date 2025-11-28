@@ -1,7 +1,9 @@
+// js/router.js
+
 /**
  * Global function to go back to the previous page in history.
  */
-function goBack() {
+export function goBack() {
     window.history.back();
 }
 
@@ -9,8 +11,7 @@ function goBack() {
  * Global function to handle user logout.
  * Clears localStorage and redirects to the login page.
  */
-function logout() {
-    // Dipanggil dari auth.js setelah impor.
-    // window.location.href = "login.html";
-    console.log("Logout function called.");
+export function logout() {
+    // Fungsi ini akan di-override di auth.js
+    console.log("Logout function called from router (Placeholder).");
 }
