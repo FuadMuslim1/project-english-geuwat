@@ -7,6 +7,93 @@
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/layout.css">
+    <style>
+        /* CSS INJEKSI untuk Desain Elegan */
+        :root {
+            --color-primary: #1E3A8A;   
+            --color-secondary: #F59E0B; 
+            --color-background: #F9FAFB; 
+            --color-card: #FFFFFF;      
+            --color-danger: #DC2626;
+            --border-radius: 8px;
+            --box-shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-card);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary {
+            background-color: var(--color-secondary); /* Amber */
+            color: var(--color-card);
+        }
+        .btn-danger {
+            background-color: var(--color-danger);
+            color: var(--color-card);
+        }
+
+        /* Symbol List Grid Styles (Symbol Items) */
+        .symbol-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .symbol-item {
+            background-color: var(--color-card);
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .symbol-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .symbol-link {
+            font-size: 4em; /* Buat simbol besar */
+            font-weight: 700;
+            color: var(--color-secondary); /* Amber untuk penekanan */
+            text-decoration: none;
+            display: block;
+        }
+        /* General Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +105,7 @@
     </header>
 
     <div class="container">
-        <p>Klik simbol untuk melihat contoh kata dan mendengarkan pengucapan.</p>
+        <p style="color: #4B5563;">Klik simbol untuk melihat contoh kata dan mendengarkan pengucapan.</p>
         <div class="symbol-list-grid">
             <div class="symbol-item">
                 <a href="../symbols/i-short.html?symbol=ɪ" class="symbol-link">/ɪ/</a>
@@ -29,16 +116,15 @@
             <div class="symbol-item">
                 <a href="../symbols/e-vowel.html?symbol=e" class="symbol-link">/e/</a>
             </div>
-        </div>
+            </div>
 
-        <div style="margin-top: 30px; text-align: center;">
+        <div style="margin-top: 40px; text-align: center;">
             <button onclick="window.location.href = '../exercise.html'" 
                     class="btn btn-primary" 
-                    style="width: 100%; max-width: 400px; padding: 15px; font-size: 1.2em; background-color: var(--secondary-color); color: white;">
+                    style="width: 100%; max-width: 400px; padding: 15px; font-size: 1.2em;">
                 Exercise Menu: Vowel Sounds
             </button>
         </div>
-
     </div>
 
     <script type="module" src="../js/router.js"></script>
