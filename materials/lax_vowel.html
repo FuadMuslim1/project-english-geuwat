@@ -15,9 +15,7 @@
             --color-card: #FFFFFF;      
             --border-radius: 8px;
         }
-        body { /* ... */ }
-        header { /* ... */ }
-        .container { /* ... */ }
+        /* ... Gaya lainnya ... */
         .symbol-list-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -35,13 +33,13 @@
         .symbol-link {
             font-size: 4em; 
             font-weight: 700;
-            color: var(--color-secondary); 
+            color: var(--color-secondary); /* Amber untuk penekanan Vowel */
             text-decoration: none;
             display: block;
         }
         .symbol-item:hover { transform: scale(1.05); }
         .btn-exercise {
-            background-color: #4CAF50; /* Hijau */
+            background-color: var(--color-secondary);
             color: white;
             padding: 15px;
             font-size: 1.2em;
@@ -52,9 +50,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .btn-exercise:hover {
-            background-color: #45A049;
-        }
+        .btn-exercise:hover { background-color: #D97706; }
     </style>
 </head>
 <body>
@@ -70,25 +66,13 @@
         <p style="color: #4B5563;">Vokal Pendek (Lax Vowels). Klik simbol untuk melihat contoh kata dan mendengarkan pengucapan.</p>
         
         <div class="symbol-list-grid">
-            <div class="symbol-item">
-                <a href="../symbols/short-u.html?symbol=ʌ" class="symbol-link">/ʌ/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/i-short.html?symbol=ɪ" class="symbol-link">/ɪ/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/u-short.html?symbol=ʊ" class="symbol-link">/ʊ/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/e-vowel.html?symbol=ɛ" class="symbol-link">/ɛ/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/schwa.html?symbol=ə" class="symbol-link">/ə/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/r-coloured.html?symbol=ɚ" class="symbol-link">/ɚ/</a>
-            </div>
-            </div>
+            <div class="symbol-item"><a href="../symbols/short-u.html?symbol=ʌ" class="symbol-link">/ʌ/</a></div>
+            <div class="symbol-item"><a href="../symbols/i-short.html?symbol=ɪ" class="symbol-link">/ɪ/</a></div>
+            <div class="symbol-item"><a href="../symbols/u-short.html?symbol=ʊ" class="symbol-link">/ʊ/</a></div>
+            <div class="symbol-item"><a href="../symbols/e-vowel.html?symbol=ɛ" class="symbol-link">/ɛ/</a></div>
+            <div class="symbol-item"><a href="../symbols/schwa.html?symbol=ə" class="symbol-link">/ə/</a></div>
+            <div class="symbol-item"><a href="../symbols/r-coloured.html?symbol=ɚ" class="symbol-link">/ɚ/</a></div>
+        </div>
 
         <div style="margin-top: 40px; text-align: center;">
             <button onclick="window.location.href = '../exercise/exercise-vowel-lax.html'" 

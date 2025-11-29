@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../styles/button.css">
     <link rel="stylesheet" href="../styles/layout.css">
     <style>
-        /* CSS INJEKSI (Sama seperti Lax Vowel) */
         :root {
             --color-primary: #1E3A8A;   
             --color-secondary: #F59E0B; 
@@ -16,9 +15,7 @@
             --color-card: #FFFFFF;      
             --border-radius: 8px;
         }
-        body { /* ... */ }
-        header { /* ... */ }
-        .container { /* ... */ }
+        /* ... Gaya lainnya ... */
         .symbol-list-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -42,7 +39,7 @@
         }
         .symbol-item:hover { transform: scale(1.05); }
         .btn-exercise {
-            background-color: #4CAF50; /* Hijau */
+            background-color: var(--color-secondary);
             color: white;
             padding: 15px;
             font-size: 1.2em;
@@ -53,9 +50,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .btn-exercise:hover {
-            background-color: #45A049;
-        }
+        .btn-exercise:hover { background-color: #D97706; }
     </style>
 </head>
 <body>
@@ -71,22 +66,12 @@
         <p style="color: #4B5563;">Vokal Panjang (Tense Vowels). Klik simbol untuk melihat contoh kata dan mendengarkan pengucapan.</p>
         
         <div class="symbol-list-grid">
-            <div class="symbol-item">
-                <a href="../symbols/a-long.html?symbol=ɑː" class="symbol-link">/ɑː/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/i-long.html?symbol=iː" class="symbol-link">/iː/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/u-long.html?symbol=uː" class="symbol-link">/uː/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/ash-long.html?symbol=æː" class="symbol-link">/æ/</a>
-            </div>
-            <div class="symbol-item">
-                <a href="../symbols/o-long.html?symbol=ɔː" class="symbol-link">/ɔː/</a>
-            </div>
-            </div>
+            <div class="symbol-item"><a href="../symbols/a-long.html?symbol=ɑː" class="symbol-link">/ɑː/</a></div>
+            <div class="symbol-item"><a href="../symbols/i-long.html?symbol=iː" class="symbol-link">/iː/</a></div>
+            <div class="symbol-item"><a href="../symbols/u-long.html?symbol=uː" class="symbol-link">/uː/</a></div>
+            <div class="symbol-item"><a href="../symbols/ash-long.html?symbol=æː" class="symbol-link">/æː/</a></div>
+            <div class="symbol-item"><a href="../symbols/o-long.html?symbol=ɔː" class="symbol-link">/ɔː/</a></div>
+        </div>
 
         <div style="margin-top: 40px; text-align: center;">
             <button onclick="window.location.href = '../exercise/exercise-vowel-tense.html'" 

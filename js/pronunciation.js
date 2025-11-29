@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (vowelBtn) {
         vowelBtn.addEventListener('click', () => {
-            // PERUBAHAN DI SINI: Mengarahkan ke file kategori yang baru
+            // PERUBAHAN: Mengarahkan ke file kategori yang baru
             window.location.href = './materials/vowel_categories.html'; 
         });
     }
