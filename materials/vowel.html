@@ -10,8 +10,8 @@
     <style>
         /* CSS INJEKSI untuk Desain Elegan */
         :root {
-            --color-primary: #1E3A8A;   
-            --color-secondary: #F59E0B; 
+            --color-primary: #1E3A8A;   /* Deep Blue */
+            --color-secondary: #F59E0B; /* Amber */
             --color-background: #F9FAFB; 
             --color-card: #FFFFFF;      
             --color-danger: #DC2626;
@@ -65,7 +65,7 @@
         .symbol-link {
             font-size: 4em; 
             font-weight: 700;
-            color: var(--color-secondary); 
+            color: var(--color-secondary); /* Amber untuk penekanan */
             text-decoration: none;
             display: block;
         }
@@ -74,6 +74,20 @@
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
+        }
+        /* Style untuk tombol exercise */
+        .btn-primary {
+            background-color: var(--color-secondary);
+            color: var(--color-card);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #D97706;
         }
     </style>
 </head>
@@ -92,8 +106,7 @@
             </div>
 
         <div style="margin-top: 40px; text-align: center;">
-            <button id="exercise-btn" onclick="window.location.href = '../exercise.html'" 
-                    class="btn btn-primary" 
+            <button id="exercise-btn" class="btn btn-primary" 
                     style="width: 100%; max-width: 400px; padding: 15px; font-size: 1.2em;">
                 Exercise Menu
             </button>
@@ -106,7 +119,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const category = urlParams.get('category');
+            const category = urlParams.get('category'); // Membaca parameter 'category'
             const gridContainer = document.getElementById('symbol-grid-container');
             const headerTitle = document.getElementById('header-title');
             const exerciseBtn = document.getElementById('exercise-btn');
@@ -114,38 +127,49 @@
             let symbols = [];
 
             // 1. Definisikan semua simbol dan kategorinya
+            // Asumsi file symbols berada di folder ../symbols/
             const allVowels = [
                 // LAX VOWELS (Vokal Pendek/Santai)
-                { symbol: 'ɪ', category: 'lax', file: '../symbols/i-short.html' },
-                { symbol: 'ʊ', category: 'lax', file: '../symbols/u-short.html' },
-                { symbol: 'e', category: 'lax', file: '../symbols/e-vowel.html' },
-                { symbol: 'ə', category: 'lax', file: '../symbols/schwa.html' },
-                { symbol: 'ʌ', category: 'lax', file: '../symbols/wedge.html' },
-                { symbol: 'æ', category: 'lax', file: '../symbols/ash.html' },
-                { symbol: 'ɒ', category: 'lax', file: '../symbols/a-short.html' },
+                { symbol: 'ɪ', category: 'lax', file: '../symbols/i-short.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'ʊ', category: 'lax', file: '../symbols/u-short.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'e', category: 'lax', file: '../symbols/e-vowel.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'ə', category: 'lax', file: '../symbols/schwa.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'ʌ', category: 'lax', file: '../symbols/wedge.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'æ', category: 'lax', file: '../symbols/ash.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
+                { symbol: 'ɒ', category: 'lax', file: '../symbols/a-short.html', exercise_path: '../exercise/exercise-vowel-lax.html' },
                 
                 // TENSE VOWELS (Vokal Panjang/Tegang)
-                { symbol: 'iː', category: 'tense', file: '../symbols/i-long.html' },
-                { symbol: 'uː', category: 'tense', file: '../symbols/u-long.html' },
-                { symbol: 'ɜː', category: 'tense', file: '../symbols/er-vowel.html' },
-                { symbol: 'ɔː', category: 'tense', file: '../symbols/o-long.html' },
-                { symbol: 'ɑː', category: 'tense', file: '../symbols/a-long.html' },
+                { symbol: 'iː', category: 'tense', file: '../symbols/i-long.html', exercise_path: '../exercise/exercise-vowel-tense.html' },
+                { symbol: 'uː', category: 'tense', file: '../symbols/u-long.html', exercise_path: '../exercise/exercise-vowel-tense.html' },
+                { symbol: 'ɜː', category: 'tense', file: '../symbols/er-vowel.html', exercise_path: '../exercise/exercise-vowel-tense.html' },
+                { symbol: 'ɔː', category: 'tense', file: '../symbols/o-long.html', exercise_path: '../exercise/exercise-vowel-tense.html' },
+                { symbol: 'ɑː', category: 'tense', file: '../symbols/a-long.html', exercise_path: '../exercise/exercise-vowel-tense.html' },
             ];
+            
+            let exercisePath = '../exercise/exercise-vowel.html'; // Default
 
             if (category === 'lax') {
                 symbols = allVowels.filter(v => v.category === 'lax');
                 headerTitle.textContent = 'Lax Vowel Sounds';
                 exerciseBtn.textContent = 'Exercise Menu: Lax Vowels';
+                exercisePath = '../exercise/exercise-vowel-lax.html';
             } else if (category === 'tense') {
                 symbols = allVowels.filter(v => v.category === 'tense');
                 headerTitle.textContent = 'Tense Vowel Sounds';
                 exerciseBtn.textContent = 'Exercise Menu: Tense Vowels';
+                exercisePath = '../exercise/exercise-vowel-tense.html';
             } else {
-                // Default: Tampilkan semua jika tidak ada kategori
+                // Default: Tampilkan semua jika parameter hilang (sebaiknya jangan terjadi)
                 symbols = allVowels;
                 headerTitle.textContent = 'Semua Vowel Sounds';
                 exerciseBtn.textContent = 'Exercise Menu: Semua Vowels';
+                exercisePath = '../exercise/exercise-vowel.html';
             }
+
+            // Atur navigasi tombol exercise
+            exerciseBtn.onclick = () => {
+                window.location.href = exercisePath;
+            };
 
             // 2. Render simbol ke grid
             symbols.forEach(vowel => {
