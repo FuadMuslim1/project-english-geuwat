@@ -20,6 +20,12 @@
             border: 1px solid var(--border-color);
             border-radius: 4px;
         }
+        /* Style tambahan untuk penempatan checkbox */
+        .show-password-container {
+            text-align: left;
+            margin-top: -10px; /* Merapatkan ke input password */
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -30,6 +36,11 @@
             <form id="login-form">
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="password" id="password" placeholder="Password" required>
+                
+                <div class="show-password-container">
+                    <input type="checkbox" id="showPasswordToggle" style="width: auto; margin-right: 5px;">
+                    <label for="showPasswordToggle" style="font-size: 0.9em;">Tampilkan Password</label>
+                </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">LOGIN</button>
             </form>
         </div>
@@ -50,8 +61,11 @@
                 errorMessage.style.display = 'block';
             } else {
                 errorMessage.style.display = 'none';
+                // Jika login berhasil, handleLogin di auth.js akan mengarahkan ke index.html
             }
         });
     </script>
+    
+    <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

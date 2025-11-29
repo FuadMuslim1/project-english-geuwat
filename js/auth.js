@@ -1,6 +1,6 @@
 // js/auth.js
 
-// Import fungsi dari router.js
+// Import fungsi dari router.js (tetap dipertahankan)
 import { goBack, logout } from './router.js'; 
 
 // 1. Definisikan goBack secara global agar bisa diakses oleh onclick di HTML
@@ -39,3 +39,30 @@ export async function handleLogin(email, password) {
         return false;
     }
 }
+
+// =========================================================
+// START: LOGIKA SHOW PASSWORD
+// =========================================================
+
+// Karena auth.js sekarang dimuat sebagai modul non-async, kita harus menunggu DOM siap.
+document.addEventListener('DOMContentLoaded', () => {
+    const passwordInput = document.getElementById('password');
+    const showPasswordToggle = document.getElementById('showPasswordToggle');
+
+    // Cek apakah elemen-elemen login ada (hanya jika halaman ini adalah login.html)
+    if (passwordInput && showPasswordToggle) {
+        showPasswordToggle.addEventListener('change', function() {
+            // Jika checkbox dicentang, ubah tipe input menjadi 'text'
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                // Jika tidak dicentang, kembalikan tipe input menjadi 'password'
+                passwordInput.type = 'password';
+            }
+        });
+    }
+});
+
+// =========================================================
+// END: LOGIKA SHOW PASSWORD
+// =========================================================
