@@ -1,5 +1,3 @@
-// js/pronunciation.js
-
 // Navigasi yang berfungsi untuk Pronunciation Menu (pronunciation.html)
 document.addEventListener('DOMContentLoaded', () => {
     const vowelBtn = document.getElementById('btn-vowel');
@@ -9,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (vowelBtn) {
         vowelBtn.addEventListener('click', () => {
-            // PERUBAHAN DI SINI: Mengarah ke file kategori yang baru
+            // PERUBAHAN DI SINI: Mengarahkan ke file kategori yang baru
             window.location.href = './materials/vowel_categories.html'; 
         });
     }
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (exerciseBtn) {
         exerciseBtn.addEventListener('click', () => {
-            // Kita akan mengubah ini nanti agar exercise.html bisa membaca kategori Vowel
             window.location.href = './exercise/exercise-vowel.html'; 
         });
     }

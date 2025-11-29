@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tense Vowel Sounds - Learning English Geuwat</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/button.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <style>
+        /* CSS INJEKSI (Sama seperti Lax Vowel) */
+        :root {
+            --color-primary: #1E3A8A;   
+            --color-secondary: #F59E0B; 
+            --color-background: #F9FAFB; 
+            --color-card: #FFFFFF;      
+            --border-radius: 8px;
+        }
+        body { /* ... */ }
+        header { /* ... */ }
+        .container { /* ... */ }
+        .symbol-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .symbol-item {
+            background-color: var(--color-card);
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .symbol-link {
+            font-size: 4em; 
+            font-weight: 700;
+            color: var(--color-secondary); 
+            text-decoration: none;
+            display: block;
+        }
+        .symbol-item:hover { transform: scale(1.05); }
+        .btn-exercise {
+            background-color: #4CAF50; /* Hijau */
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-exercise:hover {
+            background-color: #45A049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Tense Vowel Sounds - Learning English Geuwat</h2>
+        <div>
+            <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
+            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <p style="color: #4B5563;">Vokal Panjang (Tense Vowels). Klik simbol untuk melihat contoh kata dan mendengarkan pengucapan.</p>
+        
+        <div class="symbol-list-grid">
+            <div class="symbol-item">
+                <a href="../symbols/a-long.html?symbol=ɑː" class="symbol-link">/ɑː/</a>
+            </div>
+            <div class="symbol-item">
+                <a href="../symbols/i-long.html?symbol=iː" class="symbol-link">/iː/</a>
+            </div>
+            <div class="symbol-item">
+                <a href="../symbols/u-long.html?symbol=uː" class="symbol-link">/uː/</a>
+            </div>
+            <div class="symbol-item">
+                <a href="../symbols/ash-long.html?symbol=æː" class="symbol-link">/æ/</a>
+            </div>
+            <div class="symbol-item">
+                <a href="../symbols/o-long.html?symbol=ɔː" class="symbol-link">/ɔː/</a>
+            </div>
+            </div>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <button onclick="window.location.href = '../exercise/exercise-vowel-tense.html'" 
+                    class="btn btn-exercise">
+                Exercise Menu: Tense Vowels
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="../js/router.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+</body>
+</html>
