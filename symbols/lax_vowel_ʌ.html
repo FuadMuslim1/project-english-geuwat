@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vowel Sound /ʌ/ - Learning English Geuwat</title> 
   
-  <link rel="stylesheet" href="/project-english-geuwat/styles/global.css"/>
-  <link rel="stylesheet" href="/project-english-geuwat/styles/button.css"/>
-  <link rel="stylesheet" href="/project-english-geuwat/styles/layout.css"/>
-  
+  <!-- ======================== -->
+  <!--   GLOBAL + BUTTON + LAYOUT CSS DIGABUNG SEMUA   -->
+  <!-- ======================== -->
   <style>
-    /* CSS Khusus untuk Tampilan Detail Simbol */
+    /* RESET STYLE */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
       background: linear-gradient(135deg, #74ebd5, #ACB6E5);
       color: #333;
       text-align: center;
+      padding-bottom: 130px; /* ruang untuk floating player */
     }
 
-    /* Header & Controls Project Anda */
+    /* HEADER */
     header { 
         padding: 15px 30px; 
         display: flex;
@@ -33,8 +34,7 @@
         position: relative; 
     }
     header h2 { font-size: 1.5em; margin: 0; color: #1E3A8A; }
-    
-    /* Website Title sebagai Menu Toggle */
+
     .menu-toggle {
         font-weight: bold; 
         color: #1E3A8A;
@@ -48,14 +48,13 @@
         color: #0056b3; 
     }
 
-    /* Dropdown Menu (Expandable Menu) - DESAIN BARU */
+    /* DROPDOWN MENU */
     .dropdown-menu {
         position: absolute;
         top: 100%; 
         left: 0;
         width: 300px; 
         background-color: #FFFFFF; 
-        border: none;
         border-radius: 0 0 10px 10px; 
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
         z-index: 950;
@@ -63,9 +62,7 @@
         padding: 5px 0; 
         animation: fadeInDown 0.3s ease-out; 
     }
-    .dropdown-menu.hidden {
-        display: none;
-    }
+    .dropdown-menu.hidden { display: none; }
     .dropdown-menu a {
         display: flex; 
         align-items: center;
@@ -84,15 +81,24 @@
         font-size: 1.2em;
         color: #F59E0B; 
     }
-    
-    /* Animasi sederhana */
+
     @keyframes fadeInDown {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
+    /* BUTTONS */
+    .btn {
+        padding: 10px 16px;
+        border-radius: 6px;
+        border:none;
+        font-weight:600;
+        cursor:pointer;
+    }
+    .btn-primary { background:#1E3A8A; color:white; }
+    .btn-danger { background:#dc2626; color:white; }
 
-    /* Word cards */
+    /* WORD LIST */
     .word-list {
       display: flex; 
       flex-wrap: wrap; 
@@ -107,44 +113,33 @@
       padding: 16px;
       width: 150px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease;
     }
-    
-    /* Player Bar (Sticky, Centered, Ramping) */
+    .word-card p { margin:6px 0; font-size:1.1em; }
+
+    /* FLOATING PLAYER */
     .player-bar {
-      width: 100%; display: block; background: transparent; 
-      z-index: 800;
-      position: sticky; 
-      top: 60px; 
-      display: flex;
-      justify-content: center; 
-    }
-    .player-content {
-      width: fit-content; 
-      min-width: 500px;
-      border-radius: 0 0 12px 12px; 
-      display: flex; 
-      align-items: center; 
-      gap: 20px; 
-      padding: 10px 20px; 
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
       background: rgba(255,255,255,0.95);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      backdrop-filter: blur(8px);
+      padding: 12px;
+      display: none;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid #ddd;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
     }
-    .player-content .close { 
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #333;
-        padding-left: 15px;
-    }
+
     .video-wrap #ytPlayer { 
         width: 250px; 
         height: 150px; 
-        min-width: 200px; 
         border-radius: 8px;
         overflow: hidden;
-        display: block; 
     } 
     .video-buttons { 
         display:flex; 
@@ -152,82 +147,89 @@
         align-items:center;
     }
 
-    /* Footer */
-    footer { background: rgba(255,255,255,0.6); padding: 14px; }
+    /* FOOTER */
+    footer { 
+      background: rgba(255,255,255,0.6); 
+      padding:14px;
+      margin-top:40px;
+    }
   </style>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     
+    <!-- ======================== -->
+    <!--        HEADER MENU       -->
+    <!-- ======================== -->
     <header>
         <h2 id="websiteTitle" class="menu-toggle">Learning English Geuwat</h2>
         
         <nav id="mainMenu" class="dropdown-menu hidden">
-            <a href="../pronunciation.html"><i class="fas fa-home"></i> Home (Pronunciation Menu)</a>
-            <a href="../materials/vowel.html"><i class="fas fa-volume-up"></i> Vowel Sounds</a>
-            <a href="../materials/diphthong.html"><i class="fas fa-exchange-alt"></i> Diphthong Sounds</a>
-            <a href="../materials/consonant.html"><i class="fas fa-microphone"></i> Consonant Sounds</a>
-            <a href="../exercise/exercise-vowel.html"><i class="fas fa-book-open"></i> Latihan (Exercise)</a>
+            <a href="/pronunciation.html"><i class="fas fa-home"></i> Home (Pronunciation Menu)</a>
+            <a href="/materials/vowel.html"><i class="fas fa-volume-up"></i> Vowel Sounds</a>
+            <a href="/materials/diphthong.html"><i class="fas fa-exchange-alt"></i> Diphthong Sounds</a>
+            <a href="/materials/consonant.html"><i class="fas fa-microphone"></i> Consonant Sounds</a>
+            <a href="/exercise/exercise-vowel.html"><i class="fas fa-book-open"></i> Latihan (Exercise)</a>
         </nav>
 
         <div>
-            <button class="btn header-btn btn-primary" onclick="goBack()">BACK</button>
-            <button class="btn header-btn btn-danger" onclick="logout()">LOGOUT</button>
+            <button class="btn btn-primary" onclick="history.back()">BACK</button>
+            <button class="btn btn-danger" onclick="alert('Logout function here')">LOGOUT</button>
         </div>
     </header>
 
     <main>
         <h3 style="text-align: center; color: #1E3A8A; margin-top: 20px;">Vowel Sound: /ʌ/</h3>
 
-        <div id="videoModal" class="player-bar" hidden>
-            <div class="player-content">
-                <div class="video-wrap">
-                    <div id="ytPlayer"></div>
-                </div>
-                <div class="video-buttons">
-                    <button id="playNow" class="primary">Play</button>
-                    <button id="pauseNow" class="secondary">Pause</button>
-                </div>
-                <button id="closeVideo" class="close" aria-label="Close">✕</button>
+        <!-- FLOATING PLAYER -->
+        <div id="videoModal" class="player-bar">
+            <div class="video-wrap"><div id="ytPlayer"></div></div>
+            <div class="video-buttons">
+                <button id="playVid" class="btn btn-primary">Play</button>
+                <button id="pauseVid" class="btn btn-danger">Pause</button>
             </div>
+            <button id="closeVideo" class="btn">✕</button>
         </div>
 
-        <div class="controls" style="margin-top: 20px; margin-bottom: 20px;">
-            <button id="openVideo" class="primary">▶ Play pronunciation video</button>
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <button id="openVideo" class="btn btn-primary">▶ Play pronunciation video</button>
         </div>
 
+        <!-- WORD LIST SAMA PERSIS -->
         <section class="word-list">
-            <div class="word-card"><p class="word">Up</p><p class="phonetic">/ʌp/</p></div>
-            <div class="word-card"><p class="word">Cup</p><p class="phonetic">/kʌp/</p></div>
-            <div class="word-card"><p class="word">But</p><p class="phonetic">/bʌt/</p></div>
-            <div class="word-card"><p class="word">Luck</p><p class="phonetic">/lʌk/</p></div>
-            <div class="word-card"><p class="word">Fun</p><p class="phonetic">/fʌn/</p></div>
-            <div class="word-card"><p class="word">Love</p><p class="phonetic">/lʌv/</p></div>
-            <div class="word-card"><p class="word">Come</p><p class="phonetic">/kʌm/</p></div>
-            <div class="word-card"><p class="word">Bus</p><p class="phonetic">/bʌs/</p></div>
-            <div class="word-card"><p class="word">Sun</p><p class="phonetic">/sʌn/</p></div>
-            <div class="word-card"><p class="word">Cut</p><p class="phonetic">/kʌt/</p></div>
-            <div class="word-card"><p class="word">Much</p><p class="phonetic">/mʌʧ/</p></div>
-            <div class="word-card"><p class="word">Us</p><p class="phonetic">/ʌs/</p></div>
-            <div class="word-card"><p class="word">Run</p><p class="phonetic">/rʌn/</p></div>
-            <div class="word-card"><p class="word">Gun</p><p class="phonetic">/gʌn/</p></div>
-            <div class="word-card"><p class="word">Jump</p><p class="phonetic">/ʤʌmp/</p></div>
-            <div class="word-card"><p class="word">Shut</p><p class="phonetic">/ʃʌt/</p></div>
-            <div class="word-card"><p class="word">Dust</p><p class="phonetic">/dʌst/</p></div>
-            <div class="word-card"><p class="word">Trust</p><p class="phonetic">/trʌst/</p></div>
-            <div class="word-card"><p class="word">Stuff</p><p class="phonetic">/stʌf/</p></div>
-            <div class="word-card"><p class="word">Dull</p><p class="phonetic">/dʌl/</p></div>
-            <div class="word-card"><p class="word">Ugly</p><p class="phonetic">/ˈʌgli/</p></div>
-            <div class="word-card"><p class="word">Uncle</p><p class="phonetic">/ˈʌŋkəl/</p></div>
-            <div class="word-card"><p class="word">Under</p><p class="phonetic">/ˈʌndɚ/</p></div>
-            <div class="word-card"><p class="word">Onion</p><p class="phonetic">/ˈʌnjən/</p></div>
-            <div class="word-card"><p class="word">Money</p><p class="phonetic">/ˈmʌni/</p></div>
-            <div class="word-card"><p class="word">Honey</p><p class="phonetic">/ˈhʌni/</p></div>
-            <div class="word-card"><p class="word">Cover</p><p class="phonetic">/ˈkʌvɚ/</p></div>
-            <div class="word-card"><p class="word">Worry</p><p class="phonetic">/ˈwʌri/</p></div>
-            <div class="word-card"><p class="word">Hurry</p><p class="phonetic">/ˈhʌri/</p></div>
-            <div class="word-card"><p class="word">Touch</p><p class="phonetic">/tʌʧ/</p></div>
+            <!-- (DAFTAR KATA TIDAK DIUBAH) -->
+            <div class="word-card"><p>Up</p><p>/ʌp/</p></div>
+            <div class="word-card"><p>Cup</p><p>/kʌp/</p></div>
+            <div class="word-card"><p>But</p><p>/bʌt/</p></div>
+            <div class="word-card"><p>Luck</p><p>/lʌk/</p></div>
+            <div class="word-card"><p>Fun</p><p>/fʌn/</p></div>
+            <div class="word-card"><p>Love</p><p>/lʌv/</p></div>
+            <div class="word-card"><p>Come</p><p>/kʌm/</p></div>
+            <div class="word-card"><p>Bus</p><p>/bʌs/</p></div>
+            <div class="word-card"><p>Sun</p><p>/sʌn/</p></div>
+            <div class="word-card"><p>Cut</p><p>/kʌt/</p></div>
+            <div class="word-card"><p>Much</p><p>/mʌʧ/</p></div>
+            <div class="word-card"><p>Us</p><p>/ʌs/</p></div>
+            <div class="word-card"><p>Run</p><p>/rʌn/</p></div>
+            <div class="word-card"><p>Gun</p><p>/gʌn/</p></div>
+            <div class="word-card"><p>Jump</p><p>/ʤʌmp/</p></div>
+            <div class="word-card"><p>Shut</p><p>/ʃʌt/</p></div>
+            <div class="word-card"><p>Dust</p><p>/dʌst/</p></div>
+            <div class="word-card"><p>Trust</p><p>/trʌst/</p></div>
+            <div class="word-card"><p>Stuff</p><p>/stʌf/</p></div>
+            <div class="word-card"><p>Dull</p><p>/dʌl/</p></div>
+            <div class="word-card"><p>Ugly</p><p>/ˈʌgli/</p></div>
+            <div class="word-card"><p>Uncle</p><p>/ˈʌŋkəl/</p></div>
+            <div class="word-card"><p>Under</p><p>/ˈʌndɚ/</p></div>
+            <div class="word-card"><p>Onion</p><p>/ˈʌnjən/</p></div>
+            <div class="word-card"><p>Money</p><p>/ˈmʌni/</p></div>
+            <div class="word-card"><p>Honey</p><p>/ˈhʌni/</p></div>
+            <div class="word-card"><p>Cover</p><p>/ˈkʌvɚ/</p></div>
+            <div class="word-card"><p>Worry</p><p>/ˈwʌri/</p></div>
+            <div class="word-card"><p>Hurry</p><p>/ˈhʌri/</p></div>
+            <div class="word-card"><p>Touch</p><p>/tʌʧ/</p></div>
         </section>
     </main>
 
@@ -235,7 +237,57 @@
         <p>© 2025 Learning English Geuwat</p>
     </footer>
 
+    <!-- ======================== -->
+    <!--     YOUTUBE API SCRIPT   -->
+    <!-- ======================== -->
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="/project-english-geuwat/js/symbol_interaction.js"></script> 
+
+    <!-- ======================== -->
+    <!--        JAVASCRIPT        -->
+    <!-- ======================== -->
+    <script>
+let player;
+let playerActive = false;
+
+/* YOUTUBE API */
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("ytPlayer", {
+        height: "150",
+        width: "250",
+        videoId: "3m5yFj5Tgco",
+        playerVars: { autoplay: 0, controls: 1 }
+    });
+}
+
+/* MENU DROPDOWN */
+document.getElementById("websiteTitle").addEventListener("click", () => {
+    document.getElementById("mainMenu").classList.toggle("hidden");
+});
+
+/* PLAYER CONTROLS */
+const modal = document.getElementById("videoModal");
+
+document.getElementById("openVideo").addEventListener("click", () => {
+    modal.style.display = "flex";
+    playerActive = true;
+});
+
+document.getElementById("playVid").addEventListener("click", () => {
+    player.playVideo();
+    modal.style.display = "flex";
+    playerActive = true;
+});
+
+document.getElementById("pauseVid").addEventListener("click", () => {
+    player.pauseVideo();
+});
+
+document.getElementById("closeVideo").addEventListener("click", () => {
+    modal.style.display = "none";
+    player.stopVideo();
+    playerActive = false;
+});
+    </script>
+
 </body>
 </html>
