@@ -5,98 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vowel Sound /ʌ/ - Learning English Geuwat</title> 
   
-  <!-- ======================== -->
-  <!--   GLOBAL + BUTTON + LAYOUT CSS DIGABUNG SEMUA   -->
-  <!-- ======================== -->
   <style>
+    /* CSS VARIABLES */
+    :root {
+      --color-primary: #1E3A8A; /* Biru Gelap */
+      --color-secondary: #F59E0B; /* Oranye */
+      --color-background-start: #74ebd5;
+      --color-background-end: #ACB6E5;
+      --color-text-dark: #333;
+      --color-white: #FFFFFF;
+      --color-hover-bg: #E6F3FF;
+      --color-danger: #dc2626;
+      --shadow-default: 0 2px 4px rgba(0,0,0,0.1);
+      --shadow-card: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
     /* RESET STYLE */
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      color: #333;
+      background: linear-gradient(135deg, var(--color-background-start), var(--color-background-end));
+      color: var(--color-text-dark);
       text-align: center;
       padding-bottom: 130px; /* ruang untuk floating player */
     }
 
-    /* HEADER */
+    /* HEADER & MENU */
     header { 
-        padding: 15px 30px; 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 900;
-        position: relative; 
+      padding: 15px 30px; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-default);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      position: relative; 
     }
-    header h2 { font-size: 1.5em; margin: 0; color: #1E3A8A; }
+    header h2 { font-size: 1.5em; margin: 0; color: var(--color-primary);margin-left: 15px; }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
 
     .menu-toggle {
-        font-weight: bold; 
-        color: #1E3A8A;
-        cursor: pointer; 
-        user-select: none; 
-        display: flex; 
-        align-items: center;
-        transition: color 0.2s ease;
+      font-weight: bold; 
+      color: var(--color-white);
+      cursor: pointer; 
+      user-select: none; 
+      transition: background-color 0.2s ease;
+      background: var(--color-primary);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
     }
     .menu-toggle:hover {
-        color: #0056b3; 
+      background-color: #0056b3; 
+    }
+    .menu-toggle i {
+      margin-right: 5px;
     }
 
     /* DROPDOWN MENU */
     .dropdown-menu {
-        position: absolute;
-        top: 100%; 
-        left: 0;
-        width: 300px; 
-        background-color: #FFFFFF; 
-        border-radius: 0 0 10px 10px; 
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
-        z-index: 950;
-        text-align: left;
-        padding: 5px 0; 
-        animation: fadeInDown 0.3s ease-out; 
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      width: 300px; 
+      background-color: var(--color-white); 
+      border-radius: 0 0 10px 10px; 
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+      z-index: 950;
+      text-align: left;
+      padding: 5px 0; 
+      animation: fadeInDown 0.3s ease-out; 
     }
     .dropdown-menu.hidden { display: none; }
     .dropdown-menu a {
-        display: flex; 
-        align-items: center;
-        padding: 12px 20px;
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: background-color 0.2s ease, color 0.2s ease;
+      display: flex; 
+      align-items: center;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: var(--color-text-dark);
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
     .dropdown-menu a:hover {
-        background-color: #E6F3FF; 
-        color: #1E3A8A; 
+      background-color: var(--color-hover-bg); 
+      color: var(--color-primary); 
     }
     .dropdown-menu a i {
-        margin-right: 12px;
-        font-size: 1.2em;
-        color: #F59E0B; 
+      margin-right: 12px;
+      font-size: 1.2em;
+      color: var(--color-secondary); 
     }
 
     @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* BUTTONS */
     .btn {
-        padding: 10px 16px;
-        border-radius: 6px;
-        border:none;
-        font-weight:600;
-        cursor:pointer;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border:none;
+      font-weight:600;
+      cursor:pointer;
     }
-    .btn-primary { background:#1E3A8A; color:white; }
-    .btn-danger { background:#dc2626; color:white; }
+    .btn-primary { background: var(--color-primary); color: var(--color-white); }
+    .btn-danger { background: var(--color-danger); color: var(--color-white); }
 
     /* WORD LIST */
     .word-list {
@@ -112,8 +133,13 @@
       margin: 10px; 
       padding: 16px;
       width: 150px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default; 
+    }
+    .word-card:hover {
+      transform: translateY(-5px); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
     }
     .word-card p { margin:6px 0; font-size:1.1em; }
 
@@ -127,24 +153,37 @@
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
       padding: 12px;
-      display: none;
+      display: flex; 
       gap: 12px;
       justify-content: center;
       align-items: center;
       border-top: 2px solid #ddd;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+
+      /* Properti Transisi Awal (Tersembunyi) */
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .player-bar.active {
+      /* Properti Saat Aktif (Muncul) */
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .video-wrap #ytPlayer { 
-        width: 250px; 
-        height: 150px; 
-        border-radius: 8px;
-        overflow: hidden;
+      width: 250px; 
+      height: 150px; 
+      border-radius: 8px;
+      overflow: hidden;
     } 
     .video-buttons { 
-        display:flex; 
-        gap:10px; 
-        align-items:center;
+      display:flex; 
+      gap:10px; 
+      align-items:center;
     }
 
     /* FOOTER */
@@ -153,25 +192,87 @@
       padding:14px;
       margin-top:40px;
     }
+    /* ======================== */
+    /*     MEDIA QUERIES UNTUK MOBILE   */
+    /* ======================== */
+
+    /* Target perangkat dengan lebar maksimum 600px (Ponsel) */
+    @media (max-width: 600px) {
+    
+    /* Perbaikan 1: HEADER & Dropdown */
+    .header-left {
+        /* Memastikan logo dan tombol menu tidak memakan seluruh ruang */
+        width: 65%;
+    }
+
+    /* Memaksa tombol BACK/LOGOUT menjadi tumpukan vertikal jika perlu, 
+       atau cukup biarkan di satu baris jika masih muat. 
+       Untuk amannya, kita paksakan tumpukan pada div tombol */
+    header > div:last-child {
+        display: flex;
+        gap: 5px; /* Kurangi jarak antar tombol */
+    }
+
+    .dropdown-menu {
+        width: 100%; /* Menu ambil seluruh lebar layar */
+        border-radius: 0;
+    }
+
+    /* Perbaikan 2: FLOATING PLAYER */
+    .player-bar {
+        /* Jadikan tumpukan vertikal */
+        flex-direction: column; 
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .video-wrap, 
+    .video-wrap #ytPlayer {
+        /* Player mengambil hampir seluruh lebar layar */
+        width: 95vw; /* 95% dari lebar viewport */
+        height: 200px; /* Tingkatkan tinggi agar lebih terlihat */
+    }
+    
+    .video-buttons {
+        /* Pastikan tombol Play/Pause tidak terlalu besar */
+        width: 95vw;
+        justify-content: space-around;
+    }
+
+    .player-bar #closeVideo {
+        /* Letakkan tombol tutup di sudut */
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        padding: 5px 8px;
+        z-index: 1000;
+    }
+    
+    /* Pastikan padding bawah body cukup untuk menampung player vertikal */
+    body {
+        padding-bottom: 250px; 
+    }
+    }
+
   </style>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    
-    <!-- ======================== -->
-    <!--        HEADER MENU       -->
-    <!-- ======================== -->
     <header>
-        <h2 id="websiteTitle" class="menu-toggle">Learning English Geuwat</h2>
+        <div class="header-left">
+    <button class="menu-toggle" id="menuToggleBtn" aria-expanded="false" aria-controls="mainMenu">
+        <i class="fas fa-bars"></i> Menu
+    </button>
+    <h2>Learning English Geuwat</h2>
+        </div>
         
         <nav id="mainMenu" class="dropdown-menu hidden">
-            <a href="/pronunciation.html"><i class="fas fa-home"></i> Home (Pronunciation Menu)</a>
-            <a href="/materials/vowel.html"><i class="fas fa-volume-up"></i> Vowel Sounds</a>
-            <a href="/materials/diphthong.html"><i class="fas fa-exchange-alt"></i> Diphthong Sounds</a>
-            <a href="/materials/consonant.html"><i class="fas fa-microphone"></i> Consonant Sounds</a>
-            <a href="/exercise/exercise-vowel.html"><i class="fas fa-book-open"></i> Latihan (Exercise)</a>
+            <a href="/pronunciation.html"><i class="fas fa-home"></i> Home </a>
+            <a href="../materials/vowel_categories.html"><i class="fas fa-book"></i> Vowel </a>
+            <a href="../materials/diphthong.html"><i class="fas fa-book"></i> Diphthong </a>
+            <a href="../materials/consonant_categories.html"><i class="fas fa-book"></i> Consonant </a>
         </nav>
 
         <div>
@@ -181,25 +282,22 @@
     </header>
 
     <main>
-        <h3 style="text-align: center; color: #1E3A8A; margin-top: 20px;">Vowel Sound: /ʌ/</h3>
+        <h3 style="text-align: center; color: var(--color-primary); margin-top: 20px;">Vowel Sound: /ʌ/</h3>
 
-        <!-- FLOATING PLAYER -->
         <div id="videoModal" class="player-bar">
             <div class="video-wrap"><div id="ytPlayer"></div></div>
             <div class="video-buttons">
                 <button id="playVid" class="btn btn-primary">Play</button>
                 <button id="pauseVid" class="btn btn-danger">Pause</button>
             </div>
-            <button id="closeVideo" class="btn">✕</button>
+            <button id="closeVideo" class="btn" aria-label="Tutup Video Player">✕</button>
         </div>
 
         <div style="margin-top: 20px; margin-bottom: 20px;">
             <button id="openVideo" class="btn btn-primary">▶ Play pronunciation video</button>
         </div>
 
-        <!-- WORD LIST SAMA PERSIS -->
         <section class="word-list">
-            <!-- (DAFTAR KATA TIDAK DIUBAH) -->
             <div class="word-card"><p>Up</p><p>/ʌp/</p></div>
             <div class="word-card"><p>Cup</p><p>/kʌp/</p></div>
             <div class="word-card"><p>But</p><p>/bʌt/</p></div>
@@ -237,56 +335,73 @@
         <p>© 2025 Learning English Geuwat</p>
     </footer>
 
-    <!-- ======================== -->
-    <!--     YOUTUBE API SCRIPT   -->
-    <!-- ======================== -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
-    <!-- ======================== -->
-    <!--        JAVASCRIPT        -->
-    <!-- ======================== -->
     <script>
-let player;
-let playerActive = false;
+(function() {
+    let player;
+    let playerReady = false; 
 
-/* YOUTUBE API */
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player("ytPlayer", {
-        height: "150",
-        width: "250",
-        videoId: "3m5yFj5Tgco",
-        playerVars: { autoplay: 0, controls: 1 }
+    /* YOUTUBE API */
+    window.onYouTubeIframeAPIReady = function() {
+        player = new YT.Player("ytPlayer", {
+            height: "150",
+            width: "250",
+            // INI ADALAH PERUBAHAN KRUSIAL (Video ID yang benar)
+            videoId: "e6rjJiOxVCs", 
+            playerVars: { autoplay: 0, controls: 1 },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    };
+
+    function onPlayerReady(event) {
+        playerReady = true; 
+        console.log("YouTube Player is ready.");
+    }
+
+    /* MENU DROPDOWN */
+    document.getElementById("menuToggleBtn").addEventListener("click", (e) => {
+        const menu = document.getElementById("mainMenu");
+        const isHidden = menu.classList.toggle("hidden");
+        e.currentTarget.setAttribute('aria-expanded', !isHidden);
     });
-}
 
-/* MENU DROPDOWN */
-document.getElementById("websiteTitle").addEventListener("click", () => {
-    document.getElementById("mainMenu").classList.toggle("hidden");
-});
+    /* PLAYER CONTROLS */
+    const modal = document.getElementById("videoModal");
+    const playVidButton = document.getElementById("playVid");
+    const pauseVidButton = document.getElementById("pauseVid");
+    const openVidButton = document.getElementById("openVideo");
+    const closeVidButton = document.getElementById("closeVideo");
 
-/* PLAYER CONTROLS */
-const modal = document.getElementById("videoModal");
+    openVidButton.addEventListener("click", () => {
+        modal.classList.add("active");
+        if (playerReady) {
+            player.playVideo();
+        }
+    });
 
-document.getElementById("openVideo").addEventListener("click", () => {
-    modal.style.display = "flex";
-    playerActive = true;
-});
+    playVidButton.addEventListener("click", () => {
+        if (playerReady) {
+            player.playVideo();
+            modal.classList.add("active");
+        }
+    });
 
-document.getElementById("playVid").addEventListener("click", () => {
-    player.playVideo();
-    modal.style.display = "flex";
-    playerActive = true;
-});
+    pauseVidButton.addEventListener("click", () => {
+        if (playerReady) {
+            player.pauseVideo();
+        }
+    });
 
-document.getElementById("pauseVid").addEventListener("click", () => {
-    player.pauseVideo();
-});
-
-document.getElementById("closeVideo").addEventListener("click", () => {
-    modal.style.display = "none";
-    player.stopVideo();
-    playerActive = false;
-});
+    closeVidButton.addEventListener("click", () => {
+        if (playerReady) {
+            player.stopVideo();
+        }
+        modal.classList.remove("active");
+    });
+})();
     </script>
 
 </body>
